@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <meta property="site_name" content="student form">
+    <meta property="type" content="website">
+    <meta property="image:width" content="500">
+    <meta property="image:height" content="200">
+
+
+   
+    <title>Form(Manish Gopali)</title>
+   
+
+    <style>
+        #studentForm{
+            width: 50%;
+            display: grid;
+            gap: 10px;
+        }
+
+        .inputclass,#studentForm input,input{
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            outline: none;
+            border-radius:  6px;
+        }
+        body{
+            max-width: 900px;
+            margin:auto;
+        }
+        .--displayFlex{
+            display: flex;  
+            gap: 10px;
+        }
+        .inputclass,#studentForm input:read-only{
+            color: #ccc;
+        }
+        .inputClass:focus{   /*active  vanne use gareko yesle kun click gareko lai highlight*/
+            border: 1px solid blue !important;
+        }
+        .changeFontClass{
+            font-size: 18px !important ;
+        }
+        .button:hover{
+            opacity:0.6;
+            background:#ccc;
+        }
+        .Use_of_achorTag{
+          
+            font-size: 20px;
+            padding: 10px;
+        }
+        tr,th,td{
+            border: 1px solid #757575;
+            padding: 0.5px;
+            text-align: start;
+
+        }
+        table{
+            width: 100%;
+            border-collapse:collapse ;
+            
+        }
+        tr:nth-child(even)
+        {
+            background:wheat;
+        }
+
+    #myCanvas{
+        border: 1px solid #ccc;
+    }
+        
+    fieldset{
+        overflow: auto;
+        height: fit-content;
+        margin: 10px 0;
+    }
+        
+
+    
+
+    
+    </style>
+
+    
+</head>
+<body>
+    <main>
+
+    <fieldset>
+        <legend>Unit 2:headings,paragraph,image,class,break,anker tag,bold,italic,small,strong </legend>
+         <div class="Use_of_achorTag">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+    </div>
+
+           <h1>Introduction</h1>
+           <h3>Kathmandu,Nepal</h3>
+
+           <div class="...itmes_center">
+            <p>This is the image of the baby..</p>
+            <img src="profilePicture.jpg" alt="sleeping baby"   height="315"/>
+            </div>
+
+            <p>
+                <b>This is bold.</b>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br/>
+                <small>This is small..</small>Error aliquid dolorum minima,<br> 
+                <br><strong>This is strong..</strong> deleniti iusto corrupti perferendis necessitatibus culpa accusantium<br/>
+                <i>This is italic.</i>delectus ipsa laborum pariatur voluptate quae optio aut rerum quia.
+            </p>
+
+           
+
+
+    </fieldset>
+
+    <fieldset>
+        <legend>Unit 2 :list,table,audio,video</legend>
+        <ul>
+            <li>Food</li>
+            <li>Games</li>
+            <li>Anime</li>
+            <li>Sleep</li>
+        </ul>
+
+        <table>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>address</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Manish</td>
+                <td>kalanki</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Miyoko</td>
+                <td>kalimati</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Avril</td>
+                <td>Siphal</td>
+            </tr>
+        </table>
+
+
+    </fieldset>
+
+  
+    
+
+
+    <fieldset>
+        <legend>Unit 2 :HTML FORMS</legend>
+        <form id="studentForm">
+           <div class="--displayFlex">
+            <input required class ="inputClass" placeholder=" Frist name" id="name" />
+            <input required class ="inputClass changeFontClass" placeholder="  Last name" id="lname" />
+           </div>
+            <input required class ="inputClass" placeholder="roll" id="roll" />
+            <input min="1" max="12" type="number" required class ="inputClass" placeholder="class" id="class" />
+            <input  required class ="inputClass" placeholder="address" id="address" />
+            <input required clas="inputClass" value="Nepal" id="Country" readonly/>
+           
+            <select required>
+                <option>male</option>
+                <option >female</option>
+                <option>others</option>
+            </select>
+            <input type="password">
+            <input type="file">
+            <input type="color">
+            
+            <button type="submit">Submit</button>
+            
+            
+
+            
+        </form>
+        <fieldset>
+            <legend>Unit2:Mouse events,class and id attributes</legend>
+            <button onmouseleave="handleMouseLeave()" onclick="abc()">click me</button>
+        </fieldset>
+        <script>
+            function abc()
+            {
+                alert('Hi World!')
+            }
+            function handleMouseLeave()
+            {
+                alert('mouse left')
+            }
+        </script>
+       
+        
+    </fieldset>
+
+    <fieldset>
+        <legend>Unit2: iframe</legend>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/IuR8imyrWoE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </fieldset>
+
+
+
+    <fieldset>
+        <legend>Unit 2: canvas</legend>
+       
+        <canvas id="myCanvas">
+
+        </canvas>
+
+    </fieldset>
+
+    <fieldset> 
+        <legend>Unit 2: canvas</legend>
+       
+        <canvas id="myCanvas2">
+
+        </canvas>
+
+    </fieldset>
+
+    </main>
+    <script>
+        let canvas=document.getElementById('myCanvas');
+        let context=canvas.getContext("2d");
+        context.beginPath();
+        context.strokeStyle='red';
+        context.moveTo(0,0);  // set the staring x,y coordinate
+        context.lineTo(50,100);  //set the ending x,y coordinate
+        context.stroke();
+
+        context.beginPath();
+        context.strokeStyle='blue';
+        context.moveTo(50,100);  // set the staring x,y coordinate
+        context.lineTo(245,152);  //set the ending x,y coordinate
+        context.stroke();
+        
+    </script>
+    
+   
+    <fieldset>
+    
+        <fieldset>
+            <script>
+                var c =document.getElementById('myCanvas2');
+                var ctx=c.getContext('2d');
+                ctx.beginPath();
+                ctx.arc(95,50,40,0,2*Math.PI);
+                ctx.stroke();
+            </script>
+        </fieldset>
+        <legend>Unit2:section</legend>
+        <iframe width="100%" height="50%" src="./new.html"/>
+    </fieldset>
+
+    
+</body>
+</html>

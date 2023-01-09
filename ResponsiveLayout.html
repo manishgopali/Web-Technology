@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout</title>
+
+    <style>
+          #wrapper{
+            display: flex;
+            gap:20px;
+            
+          }
+          #image{
+            width: 200px;
+            height: 200px;
+            
+          }h1{
+            margin: 0;
+          }
+
+          @media screen and (max-width:700px) {
+            #wrapper{
+                flex-direction: column;
+                align-items: center;
+                background: greenyellow;
+
+            }
+            
+          }
+          
+
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="imgWrapper">
+            <img src="microprocessor.jpg " id="image">
+
+        </div>
+        <div id="textWrapper">
+            <h1>Header</h1>
+            Soluta deserunt reprehenderit nobis pariatur optio voluptatum nihil 
+            Soluta deserunt reprehenderit nobis pariatur optio voluptatum nihil 
+            Soluta deserunt reprehenderit nobis pariatur optio voluptatum nihil 
+            Soluta deserunt reprehenderit nobis pariatur optio voluptatum nihil 
+            Soluta deserunt reprehenderit nobis pariatur optio voluptatum nihil 
+            Soluta deserunt reprehenderit nobis pariatur optio voluptatum nihil 
+            <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Soluta deserunt reprehenderit nobis pariatur optio voluptatum nihil 
+            facere quo numquam fugiat atque vel ullam accusamus, unde odit qui earum magni molestias?
+            </p>
+        </div>
+    </div>
+    
+</body>
+</html>

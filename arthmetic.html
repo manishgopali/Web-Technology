@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input placeholder="First num" id="first_num" type="number">
+    <input placeholder="Second num" id="second_num" type="number">
+    <input placeholder="Enter a number to check if it is even or odd" id="num" type="number">
+    <input placeholder="Enter a string" id="palindrome">
+    <input placeholder="Enter a sting to check middleValue " id="middleValue">
+    <div id="result1"/>
+    <div id="result"/>
+    <div id="result2"></div>
+    <button onclick="handleOperations()">Submit</button>
+    <button onclick="checkPalindrome()">checkPalindrome</button>
+    <button onclick="checkMiddleValue()">checkMiddleValue</button>
+    <button onclick="checkEvenOdd()">checkEvenOdd</button>
+
+    <script>
+       
+        function handleOperations(){
+            let num1=parseInt(document.getElementById('first_num').value);
+            let num2=parseInt(document.getElementById('second_num').value);
+            let resultWrap=document.getElementById('result');
+            let sum=num1+num2;
+            let diff=num1-num2;
+            let multi=num1*num2;
+            
+            if(confirm('Are you sure to proceed?'))
+            {
+
+            resultWrap.innerHTML=`The sum of ${num1} and ${num2} is ${sum}
+            The difference of ${num1} and ${num2} is ${diff}
+            The multiplication of ${num1} and ${num2} is ${multi}`;
+            }
+           
+
+
+        }
+        function checkEvenOdd()
+        {
+             let num=parseInt(document.getElementById('num').value);
+             let resultWrap1=document.getElementById('result2');
+             if(num%2==0)
+            {
+              resultWrap1.innerHTML=`number ${num} is even`;
+            }
+            else{
+                resultWrap1.innerHTML=`number ${num} is odd`;
+            }
+        }
+        function checkPalindrome()
+        {
+            let string=document.getElementById('palindrome').value;
+            let stringToArr=string.split('');
+            let stringReverse=stringToArr.reverse();
+            let finalStr=stringReverse.join('');
+            if(string==="" && string.length<3)
+            {
+                alert('Enter a proper string');
+                return;
+            }
+            if(string==finalStr)
+            {
+                alert('This is a palindrome.');
+            }
+            else{
+               
+                alert('This is not  a palindrome.');
+            }
+        }
+        function checkMiddleValue()
+        {
+            let str=prompt('Enter a String to check');
+            let strArr=str.split('');
+            let arrLength=strArr.length;
+            if(arrLength%2==0){
+                alert('length of the string is even so middle value doesnot exist..');
+            }
+            else{
+                let middle=Math.floor(arrLength/2);
+                console.log(middle);
+                let middleLetter=strArr[middle];
+                let resultWrap2=document.getElementById('result1');
+                resultWrap2.innerHTML=`The middle letter is ${middleLetter}`;
+            }
+        }
+
+    </script>
+</body>
+</html>

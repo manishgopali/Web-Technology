@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StringFunction</title>
+</head>
+<body>
+    <fieldset>
+        <legend>StringFunction</legend>
+        <script>
+               let strLength="Ram".length;
+               let strSplit="Ram".split('');
+               let strReplace="Ram".replace('R','S');
+               let strStartWith="Ram".startsWith('Ra');
+               let strCharAt="Ram".charAt(1);
+               let strEndWith="Ram".endsWith('a');
+               let name="Manish";
+               let StrNum="1";
+               let strToNum=Number(StrNum);
+            
+               console.log(strLength);
+               console.log(strSplit);
+               console.log(strReplace);
+               console.log(strStartWith);
+               console.log(strCharAt);
+               console.log(strEndWith);
+               console.log(name.toUpperCase());
+               console.log(name.toLowerCase());
+               console.log(strToNum);
+        </script>
+     
+    </fieldset>
+    <fieldset>
+        <legend>ArrayFunction</legend>
+        <script>
+            let arr=[];
+            arr.push('Miyoko');  //adding values using push method
+            console.log(arr);
+            arr=[...arr,'Manish'];  //addding valuesusing spread operator
+            console.log(arr);
+            arr.pop();
+            console.log(arr);
+            let spl=['ram','sita','gita'].splice(1,1);
+            console.log(spl);
+            [1,2,3,4,5].map((item)=>console.log(item));
+            [6,7,8,9,10].forEach((item)=>console.log(item));
+
+            for(i=11;i<15;i++)
+            {
+                console.log(i);
+            }
+            
+            while(i<20)
+            {
+              
+                console.log(i);
+                i++;
+            }
+
+            do{
+                console.log(i);
+                i++;
+
+            }while(i<25)
+        
+        </script>
+    </fieldset>
+</body>
+</html>

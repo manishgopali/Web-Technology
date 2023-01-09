@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnSubmit Attribute</title>
+    <link href="./style.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+   
+        :root{
+            --primary-color:dodgerblue;
+            --default-padding:10px;
+            --secondary-color:lightcoral;
+
+        }
+
+        *{
+            border-radius: 20px;
+        }
+
+        form {
+            display: grid;
+            gap: 20px;
+            margin: 20px auto;
+            width: 60%;
+        }
+          input,button{
+            padding: var(--default-padding);
+            outline: none;
+            border:1px solid var(--primary-color);
+            color:var(--secondary-color);
+            
+          }
+    
+          input:focus{
+            border: 1px solid var(--secondary-color);
+          }
+          button{
+            background:dodgerblue;
+            color:#fff;
+          }
+          /*pseudo selectors*/
+          input:read-only{
+            border: 1px dotted #212121;
+          }
+          body{
+            font-family: 'Roboto', sans-serif;
+          }
+         
+
+    </style>
+</head>
+<body>
+    <legend>Unit 2 :HTML FORMS With Onsubmit</legend>
+    <div id="date"></div>
+        <form id="student-form">
+
+            <input    style="color:blue;"required class ="inputClass" placeholder=" Frist name" id="fname" />
+            <input style="color:blue;" required class ="inputClass" placeholder="  Last name" id="lname" />
+            <input  style="color:blue;" required class ="inputClass" placeholder="roll" id="rollNo" />
+            <input style="color:blue;" required class="inputClass" placeholder="age" id="age"/>
+            <input  type="text" value="Nepal" readonly class="inputClass"  id="country"/>
+            <input   style="color: blue;" type="email" class="inputClass" placeholder="email" id="email">
+                
+            
+            <button type="submit">Submit</button>
+         </form>
+        
+         <div id="results"/>
+         
+         <script>
+            let students1=[];
+            let fname;
+            let lname;
+            let rollNo;
+            let formElem=document.getElementById('student-form');
+            let inputs=document.getElementsByTagName('input');
+            let inputsArr=[...inputs];
+            console.log(inputsArr);
+
+            inputsArr.forEach((input)=>{
+              //console.log(input);
+              input.addEventListener('change',(e)=>{
+                switch(e.target.id){
+                case 'fname':
+                       e.target.classList.add('dirty');
+                       fname=e.target?.value;
+                       break;
+
+                  case 'lname':
+                       e.target.classList.add('dirty');
+                       lname=e.target?.value;
+                       break;
+
+                  case 'rollNo':
+                       e.target.classList.add('dirty');
+                       rollNo=e.target?.value;
+                       break;
+                  case 'email':
+                    console.log(e)
+                    e.target.classList.add('dirty');
+                    email = e.target?.value;
+                    break;
+
+                  case 'age':
+                       if(e.target?.value>15 && e.target?.value<25)
+                       {
+                        age=e.target?.value;
+                        return;
+                       }
+                       alert('Enter proper age');
+                       break;
+
+                }
+              });
+            
+
+              
+
+             
+
+            });
+            formElem.addEventListener('submit',(e)=>{
+                e.preventDefault();
+                console.log(students1);
+                students1.push({fname,lname,rollNo});
+                formElem.reset();
+                generateHTML(students1);
+
+            });
+            const generateHTML=(data=>{
+              let target=document.getElementById('results');
+              let studentsResultWrap=document.createElement('div');
+              data.forEach((item)=>{
+                studentsResultWrap.innerHTML=`<li>${item.fname}</li>`
+              });
+              target.appendChild(studentsResultWrap);
+
+            });
+            let array3=["Ram","Hari","Sita"]; //array in js
+            let roll=[2,7,5];
+            let array1=[true,true,false,false];  //is male
+            let array2=[false,false,true,true];  //is female
+
+          //object
+          let student1={name:'Ram',roll:2,isMale:true};
+          let student2={name:'Sita',roll:5,isMale:false};
+          let student3={name:'Hari',roll:7,isMale:true};
+
+          let students=[{name:'Ram',roll:2,isMale:true},{name:'Sita',roll:5,isMale:false},{name:'Hari',roll:7,isMale:true}];
+
+          students.forEach((i)=>{
+            if(i.roll==2){
+            console.log(i);}
+          });
+
+          let a="2";
+          let b=2;
+          a==b //only value check garxa
+          a===b //value sangai type ni check garxa
+
+
+
+
+            
+            
+         </script>
+         <script src="./from(one).js"></script>
+</body>
+</html>

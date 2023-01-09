@@ -1,0 +1,87 @@
+<html>
+<head>
+    <title>Cookie</title>
+</head>
+<body>
+    <h3>To see the usage of cookie try setting cookie name to darkMode, cookie value to true and select a future date and reload the page. See the code below to see how it works</h3>
+    <form id="cookie-form" style="border: 1px solid #ccc; padding: 10px;width: fit-content">
+        <label for="cookie-name">Enter cookie name: </label><input required id="cookie-name"/>
+        <label for="cookie-value">Enter cookie value: </label><input required id="cookie-value"/>
+        <label for="cookie-time">Enter cookie expiry: </label><input type="date" required id="cookie-time"/>
+        <button type="submit">Set value</button>
+    </form>
+    <form id="cookie-query-form">
+        <label for="cookie-query">Enter cookie name: </label><input required id="cookie-query"/>
+        <button type="submit" onclick="getValueFromCookie()">Get value</button>
+    </form>
+        <div style="text-align: left;font-weight: bold;font-size: 20px" id="get-value"></div>
+    <script>
+        let date=new Date();
+        let hoursToAdd=date.getHours()+24;
+        date.setHours(hoursToAdd);
+        // console.log(date)
+        cookieHandler('student','Shyam',2); //value 2
+        cookieHandler('loggedIn','false',2); //value 3
+
+        /*Dark mode */
+        let darkMode=getCookieByName('darkMode');
+        if(darkMode==='true'){
+            document.body.style.background="#000000";
+            document.body.style.color="#fff";
+        }
+
+        const getValueFromCookie=()=>{
+            let inputVal= document.getElementById("cookie-query").value;
+            document.getElementById('get-value').innerHTML=getCookieByName(inputVal);
+        }
+        /*set values to cookie*/
+        function cookieHandler(cookieName,cookieValue,expireHours){
+            let date=new Date();//current date
+            let currHours=date.getHours();//current hours
+            date.setHours(currHours+expireHours);
+            document.cookie=`${cookieName}=${cookieValue}; expires=${date}`;
+        }
+        function getCookieByName(name){
+            /*Try adding console.log in each statement to better understand the steps*/
+            let value;//set a variable to return desired value at the end;
+            let decodedCookie=decodeURIComponent(document.cookie);//
+            let cookieArr=decodedCookie.split(';'); //converts to array
+            let item;
+            /*Used for loop here instead of forEach because the loop would not break even
+            * if the value is found in forEach*/
+            for (item of cookieArr) {
+                let itemArr=item.split('=');
+                let key=itemArr[0].trim();//trim method removes the extra spaces from a string at the start and end
+                //to check if the name in parameter matches the key stored in the cookie.
+                if(key===name){
+                    value=itemArr[1];
+                    break;
+                }
+            }
+            return value;
+        }
+        let form=document.getElementById("cookie-form");
+        let form2=document.getElementById("cookie-query-form");
+        form.addEventListener('submit',(e)=>{
+            e.preventDefault();
+            let name=document.getElementById("cookie-name").value;
+            let value=document.getElementById("cookie-value").value;
+            let expiryTimeDate=document.getElementById("cookie-time").value;
+            /*getting expiry in hours*/
+            let date=new Date(expiryTimeDate);//conversion to date object
+            let dateInMillis=date.getTime();
+            let currTimeStamp=Date.now();
+            let diffInMillis=dateInMillis-currTimeStamp;//get difference from the selected date
+            let diffInHours=Math.floor((diffInMillis / (1000 * 60 * 60)))//milliseconds to hours
+            cookieHandler(name,value,diffInHours);
+        })
+        form2.addEventListener("submit",(event)=>{
+            event.preventDefault();
+            getValueFromCookie();
+        })
+
+    </script>
+
+</body>
+
+</html>
