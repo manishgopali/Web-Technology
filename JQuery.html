@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js""></script>
+     <script>
+        $(document).ready(()=>{
+            $('#btn').click(()=>{
+                $('#paragraph').text("Hello World!");
+            })
+        })
+
+        $(document).ready(()=>{
+            $('#btn1').dblclick(()=>{
+                $('.main_Wrapper #paragraph1').text("Hey Miyoko");
+            })
+        })
+
+        $(document).ready(()=>{
+            $('#name').change(()=>{
+                let value=$('#name').val();
+                alert(value);
+            })
+
+        })
+
+     </script>
+</head>
+<body>
+    <!-- //syntax :   $(selector) action  ...$ le jquery ho vanera indicate garxa...    change,click,show,hide exam ko lagi imp -->
+    <h1>HELLO</h1>
+    <p id="paragraph">Hello I am  Human</p>
+    <button id="btn">Click me to change paragraph</button>
+
+<div class="main_Wrapper">
+    <p id="paragraph1">Hey I am Manish</p>
+    <button id="btn1">Click me twice to change paragraph</button>
+</div>
+
+<input type="text" placeholder="Enter a name" id="name">
+
+</body>
+</html>
